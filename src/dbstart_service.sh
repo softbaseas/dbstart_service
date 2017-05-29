@@ -73,14 +73,14 @@ if [ -f $ORAHOME/bin/lsnrctl ]; then
   Requires=network.target
 
   [Service]
+  User=oracle
   Type=forking
   Restart=no
-  ExacStart='$ORAHOME'/bin/dbstart '$ORAHOME'
-  ExacStop='$ORAHOME'/bin/dbshut '$ORAHOME'
-  User=oracle
+  ExacStart=$ORAHOME/bin/dbstart $ORAHOME
+  ExacStop=$ORAHOME/bin/dbshut $ORAHOME
 
   [Install]
-  WantedBy=default.target" > /usr/lib/systemd/system/oracle-rdbms.service
+  WantedBy=multi-user.target" > /usr/lib/systemd/system/oracle-rdbms.service
 
   systemctl daemon-reload
   systemctl enable oracle-rdbms
