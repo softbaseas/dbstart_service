@@ -62,7 +62,8 @@ if [ -f $ORAHOME/bin/lsnrctl ]; then
   User=oracle
 
   [Install]
-  WantedBy=multi-user" > /etc/systemd/system/oracle-rdbms.service
+  WantedBy=default.target" > /usr/lib/systemd/system/oracle-rdbms.service
+  ln -s /usr/lib/systemd/system/oracle-rdbms.service /etc/systemd/system/oracle-rdbms.service
 
   systemctl daemon-reload
   systemctl enable oracle-rdbms
