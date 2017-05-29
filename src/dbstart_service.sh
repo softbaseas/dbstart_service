@@ -45,7 +45,7 @@ fi
 
 # Check if lsnrctl exists. If it does, create systemd script.
 if [ -f $ORAHOME/bin/lsnrctl ]; then
-  echo '# /etc/systemd/system/oracle-rdbms.service
+  echo "# /etc/systemd/system/oracle-rdbms.service
   # Ivan Kartik (ivn.kartik.sk), edit by Anders Wiberg Olsen (www.wiberg.tech)
   #    Invoking Oracle scripts to start/shutdown instances defined in /etc/oratab
   #    and starts listener
@@ -62,7 +62,7 @@ if [ -f $ORAHOME/bin/lsnrctl ]; then
   User=oracle
 
   [Install]
-  WantedBy=multi-user' > /etc/systemd/system/oracle-rdbms.service
+  WantedBy=multi-user" > /etc/systemd/system/oracle-rdbms.service
 
   systemctl daemon-reload
   systemctl enable oracle-rdbms
