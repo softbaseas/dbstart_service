@@ -33,8 +33,8 @@ read NEWHOME
 
 # See result of above. If user has entered nothing (i.e. just pressed enter), $ORACLE_HOME is used.
 case "$NEWHOME" in
-  "")   ORAHOME="$ORACLE_HOME"; echo "home = $ORACLE_HOME" ;;
-  *)    ORAHOME="$NEWHOME" ; echo "home = $NEWHOME" ;;
+  "")   ORAHOME="$ORACLE_HOME" ;;
+  *)    ORAHOME="$NEWHOME" ;;
 esac
 
 # Check if $ORAHOME has been set.
