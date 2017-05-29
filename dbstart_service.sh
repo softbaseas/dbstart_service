@@ -11,7 +11,9 @@ else
   echo "Systemd is present."
 fi
 
-#echo "List of existing Oracle Homes:"
-#echo "------------------------------"
-#cat `cat /etc/oraInst.loc|grep inventory_loc|cut -d '=' -f2` /ContentsXML/inventory.xml|grep "HOME NAME"|cut -d `"` -f 4
-#echo
+echo
+
+echo "List of existing Oracle Homes:"
+echo "------------------------------"
+cat `cat /etc/oraInst.loc|grep inventory_loc|cut -d '=' -f2`/ContentsXML/inventory.xml|grep "HOME NAME"|cut -d '"' -f4
+echo
