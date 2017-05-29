@@ -7,6 +7,8 @@ fi
 if [ `ps -e|grep " 1 ?"|cut -d " " -f15` != "systemd" ]; then
   echo "Systemd is not present. Use init.d scripts instead."
   exit 1
+else
+  echo "Systemd is present."
 fi
 
 #echo "List of existing Oracle Homes:"
