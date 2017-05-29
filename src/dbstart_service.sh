@@ -27,6 +27,7 @@ if [ -f "/etc/systemd/system/oracle-rdbms.service" ]; then
     [Yy]*) rm /etc/systemd/system/oracle-rdbms.service; rm /usr/lib/systemd/system/oracle-rdbms.service ;;
     *) echo "Won't delete." ;;
   esac
+fi
 
 if [ -f "/usr/lib/systemd/system/oracle-rdbms.service" ]; then
   read -p "Service already exist. Should it be deleted (y/N)? " yn
