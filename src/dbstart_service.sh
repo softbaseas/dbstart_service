@@ -26,7 +26,8 @@ if [ -f "/usr/lib/systemd/system/oracle-rdbms.service" ]; then
   read userchoice
   case "$userchoice" in
     "y") rm /usr/lib/systemd/system/oracle-rdbms.service; if [ -f "/etc/systemd/system/oracle-rdbms.service" ]; then rm /etc/systemd/system/oracle-rdbms.service fi ;
-    *) ;
+    *) ;;
+  esac
 
 echo
 
