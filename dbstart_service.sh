@@ -17,3 +17,11 @@ echo "List of existing Oracle Homes:"
 echo "------------------------------"
 cat `cat /etc/oraInst.loc|grep inventory_loc|cut -d '=' -f2`/ContentsXML/inventory.xml|grep "HOME NAME"|cut -d '"' -f4
 echo
+
+echo "Enter ORACLE_HOME of Oracle Listener [$ORACLE_HOME]:"
+read NEWHOME
+
+case "$NEWHOME" in
+  "")   ORAHOME="$ORACLE_HOME"; echo "oracle_home" ;;
+  *)    ORAHOME="$NEWHOME" ; echo "newhome" ;;
+esac
