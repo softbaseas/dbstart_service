@@ -73,3 +73,5 @@ else
   echo "Error: No Listener script under specified ORACLE_HOME: $ORAHOME"
   exit 1
 fi
+
+echo "testing"
