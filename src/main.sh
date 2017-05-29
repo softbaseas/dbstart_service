@@ -7,7 +7,7 @@ echo " q - Exit"
 while true; do
   read -p "Choice: " choice
   case $choice in
-    [1]*)  ./src/dbstart_service.sh ;;
+    [1]*) ./src/dbstart_service.sh ;;
     [2]*) ./src/webnm_service.sh ;;
     [q]*) exit 0 ;;
   esac
