@@ -20,6 +20,15 @@ if [ -z "$ORACLE_HOME" ]; then
   exit 1
 fi
 
+# Check if the service already exists
+if [ -f "/usr/lib/systemd/system/oracle-rdbms.service" ]; then
+  echo "Service already exist. Should it be deleted (y/N)? "
+  read userchoice
+  case "$userchoice" in
+    "y") rm /usr/lib/systemd/system/oracle-rdbms.service; if [ -f "/etc/systemd/system/oracle-rdbms.service" ]; then rm //etc/systemd/system/oracle-rdbms.service fi ;;
+    "Y") rm /usr/lib/systemd/system/oracle-rdbms.service; if [ -f "/etc/systemd/system/oracle-rdbms.service" ]; then rm //etc/systemd/system/oracle-rdbms.service fi ;;
+    *) ;
+
 echo
 
 # List current Oracle Homes
