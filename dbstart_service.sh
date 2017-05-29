@@ -22,6 +22,6 @@ echo "Enter ORACLE_HOME of Oracle Listener [$ORACLE_HOME]:"
 read NEWHOME
 
 case "$NEWHOME" in
-  "")   ORAHOME="$ORACLE_HOME"; echo "oracle_home" ;;
-  *)    ORAHOME="$NEWHOME" ; echo "newhome" ;;
+  "")   ORAHOME="$ORACLE_HOME"; echo "home = $ORACLE_HOME" ;;
+  *)    ORAHOME="$NEWHOME" ; echo "home = $NEWHOME" ;;
 esac
