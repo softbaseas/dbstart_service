@@ -42,3 +42,33 @@ if [ -z "$ORAHOME" ]; then
   echo "Error: Missing value!"
   exit 1
 fi
+
+# Check if lsnrctl exists. If it does, create systemd script.
+if [ -f $ORAHOME/bin/lsnrctl ]; then
+  echo '# /etc/systemd/system/oracle-rdbms.service
+  # Ivan Kartik (ivn.kartik.sk), edit by Anders Wiberg Olsen (www.wiberg.tech)
+  #    Invoking Oracle scripts to start/shutdown instances defined in /etc/oratab
+  #    and starts listener
+
+  [Unit]
+  Description=Oracle Database(s) and Listener
+  Requires=network.target
+
+  [Service]
+  Type=forking
+  Restart=no
+  ExacStart='$ORAHOME'/bin/dbstart '$ORAHOME'
+  ExacStop='$ORAHOME'/bin/dbshut '$ORAHOME'
+  User=oracle
+
+  [Install]
+  WantedBy=multi-user' > /etc/systemd/system/oracle-rdbms.service
+
+  systemctl daemon-reload
+  systemctl enable oracle-rdbms
+  echo "Done! Service oracle-rdbms has been configured and will be started during next boot."
+  echo "If you want to start the service now, execute: systemctl start oracle-rdbms"
+else
+  echo "Error: No Listener script under specified ORACLE_HOME: $ORAHOME"
+  exit 1
+fi
