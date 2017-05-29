@@ -21,7 +21,7 @@ if [ -z "$ORACLE_HOME" ]; then
 fi
 
 # Check if the service already exists
-if [ -f "/etc/systemd/system/oracle-rdbms.service" ]; then
+if [[ -L "/etc/systemd/system/oracle-rdbms.service"  ]]; then
   read -p "Service already exist and is activated. Deactivate and delete (y/N)? " yn
   case $yn in
     [Yy]*) rm /etc/systemd/system/oracle-rdbms.service; rm /usr/lib/systemd/system/oracle-rdbms.service ;;
