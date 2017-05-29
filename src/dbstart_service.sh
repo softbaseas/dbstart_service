@@ -64,7 +64,6 @@ if [ -f $ORAHOME/bin/lsnrctl ]; then
 
   [Install]
   WantedBy=default.target" > /usr/lib/systemd/system/oracle-rdbms.service
-  ln -s /usr/lib/systemd/system/oracle-rdbms.service /etc/systemd/system/oracle-rdbms.service
 
   systemctl daemon-reload
   systemctl enable oracle-rdbms
