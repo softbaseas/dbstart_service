@@ -1,3 +1,3 @@
 #!/bin/bash
 git pull
-./src/dbstart_service.sh
+./src/main.sh
