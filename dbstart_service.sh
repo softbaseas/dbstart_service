@@ -11,6 +11,9 @@ else
   echo "Systemd is present."
 fi
 
+if [ -z "$ORACLE_HOME" ]; then
+  echo "Oracle environment has not been set. Environment script can be found in /home/oracle/"
+  exit 1
 echo
 
 echo "List of existing Oracle Homes:"
