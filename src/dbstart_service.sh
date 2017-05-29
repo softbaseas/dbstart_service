@@ -35,6 +35,7 @@ if [ -f "/usr/lib/systemd/system/oracle-rdbms.service" ]; then
     [Yy]*)  rm /usr/lib/systemd/system/oracle-rdbms.service ;;
     *) echo "Won't delete." ;;
   esac
+fi
 
 echo
 
