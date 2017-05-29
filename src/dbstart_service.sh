@@ -76,8 +76,8 @@ if [ -f $ORAHOME/bin/lsnrctl ]; then
   User=oracle
   Type=forking
   Restart=no
-  ExacStart=$ORAHOME/bin/dbstart $ORAHOME
-  ExacStop=$ORAHOME/bin/dbshut $ORAHOME
+  ExecStart=$ORAHOME/bin/dbstart $ORAHOME
+  ExecStop=$ORAHOME/bin/dbshut $ORAHOME
 
   [Install]
   WantedBy=multi-user.target" > /usr/lib/systemd/system/oracle-rdbms.service
