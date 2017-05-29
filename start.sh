@@ -1,6 +1,6 @@
 #!/bin/bash
 git fetch origin
-if [[ $(git diff origin/master) ]]; then
+if [[ $(git diff origin/master -q) ]]; then
   echo "There are updates."
   echo "Updating..."
   git pull -q
