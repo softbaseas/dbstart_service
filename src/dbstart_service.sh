@@ -24,16 +24,16 @@ fi
 if [[ -L "/etc/systemd/system/oracle-rdbms.service"  ]]; then
   read -p "Service already exist and is activated. Deactivate and delete (y/N)? " yn
   case $yn in
-    [Yy]*) rm /etc/systemd/system/oracle-rdbms.service; rm /usr/lib/systemd/system/oracle-rdbms.service ;;
-    *) echo "Won't delete." ;;
+    [Yy]*) systemctl stop oraclerdbms; rm /etc/systemd/system/oracle-rdbms.service; rm /usr/lib/systemd/system/oracle-rdbms.service ;;
+    *) echo "Won't delete."; exit 1 ;;
   esac
 fi
 
 if [ -f "/usr/lib/systemd/system/oracle-rdbms.service" ]; then
   read -p "Service already exist. Should it be deleted (y/N)? " yn
   case $yn in
-    [Yy]*)  rm /usr/lib/systemd/system/oracle-rdbms.service ;;
-    *) echo "Won't delete." ;;
+    [Yy]*)  systemctl stop oraclerdbms; rm /usr/lib/systemd/system/oracle-rdbms.service ;;
+    *) echo "Won't delete."; exit 1 ;;
   esac
 fi
 
