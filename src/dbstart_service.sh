@@ -79,6 +79,7 @@ if [ -f $ORAHOME/bin/lsnrctl ]; then
   Restart=no
   ExecStart=$ORAHOME/bin/dbstart $ORAHOME
   ExecStop=$ORAHOME/bin/dbshut $ORAHOME
+  TimeoutSec=20m0s
 
   [Install]
   WantedBy=multi-user.target" > /usr/lib/systemd/system/oracle-rdbms.service
