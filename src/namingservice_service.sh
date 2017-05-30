@@ -37,7 +37,7 @@ fi
 
 
   [Unit]
-  Description=AdminServer WLS_Forms WLS_Reports
+  Description=Namingservice
   After=webnm.service
 
   [Service]
