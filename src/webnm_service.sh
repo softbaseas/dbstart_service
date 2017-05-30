@@ -47,7 +47,7 @@ fi
   Restart=no
   ExecStart=/home/oracle/WlsScripts/webnm.sh start
   ExecStop=/home/oracle/WlsScripts/webnm.sh stop
-  TimeoutSec=10m0s
+  TimeoutSec=20m0s
   RemainAfterExit=yes
 
   [Install]

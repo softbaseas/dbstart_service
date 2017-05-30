@@ -47,7 +47,6 @@ fi
   Restart=no
   ExecStart=/home/oracle/WlsScripts/Startnamingservice.sh
   ExecStop=/home/oracle/WlsScripts/Stopnamingservice.sh
-  RemainAfterExit=yes
 
   [Install]
   WantedBy=multi-user.target" > /usr/lib/systemd/system/namingservice.service
