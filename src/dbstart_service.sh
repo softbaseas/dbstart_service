@@ -74,6 +74,7 @@ if [ -f $ORAHOME/bin/lsnrctl ]; then
 
   [Service]
   User=oracle
+  Group=oinstall
   Type=forking
   Restart=no
   ExecStart=$ORAHOME/bin/dbstart $ORAHOME

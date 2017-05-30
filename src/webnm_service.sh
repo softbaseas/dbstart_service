@@ -29,31 +29,30 @@ if [ -f "/usr/lib/systemd/system/webnm.service" ]; then
     [Yy]*)  systemctl stop webnm; rm /usr/lib/systemd/system/webnm.service ;;
     *) echo "Won't delete."; exit 1 ;;
   esac
-fi
-# Check if oracle-rdbms exists. If it does, create systemd script.
-if [ -f /usr/lib/systemd/system/oracle-rdbms.service ]; then
-  echo "# /etc/systemd/system/oracle-rdbms.service
+#fi
+  echo "# /etc/systemd/system/webnm.service
   # Ivan Kartik (ivn.kartik.sk), edit by Anders Wiberg Olsen (www.wiberg.tech)
   #    Invoking Oracle scripts to start/shutdown instances defined in /etc/oratab
   #    and starts listener
 
   [Unit]
   Description=Oracle Database(s) and Listener
-  Requires=network.target
+  Requires=oracle-rdbms.service
 
   [Service]
   User=oracle
+  Group=oinstall
   Type=forking
   Restart=no
   ExecStart=/home/oracle/WlsScripts/Startup.sh
   ExecStop=/home/oracle/WlsScripts/Shutdown.sh
 
   [Install]
-  WantedBy=oracle-rdbms.service" > /usr/lib/systemd/system/webnm.service
+  WantedBy=multi-user.target" > /usr/lib/systemd/system/webnm.service
 
   systemctl daemon-reload
   systemctl enable webnm
-  echo "Done! Service oracle-rdbms has been configured and will be started during next boot."
+  echo "Done! Service webnm.service has been configured and will be started during next boot."
   echo "If you want to start the service now, execute: systemctl start webnm"
 else
   echo "Error: webnm.service is not installed yet. This script will not work without it, install it before installing this."
