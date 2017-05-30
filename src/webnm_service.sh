@@ -1,4 +1,4 @@
-#!/bin/bash
+
 
 # Check if script is run as root.
 if [[ $EUID -ne 0 ]]; then
@@ -35,17 +35,20 @@ if [ -f "/usr/lib/systemd/system/webnm.service" ]; then
   #    Invoking Oracle scripts to start/shutdown instances defined in /etc/oratab
   #    and starts listener
 
+
   [Unit]
-  Description=Oracle Database(s) and Listener
-  Requires=oracle-rdbms.service
+  Description=AdminServer WLS_Forms WLS_Reports
+  After=oracle-rdbms.service
 
   [Service]
   User=oracle
   Group=oinstall
-  Type=forking
+  Type=forked
   Restart=no
-  ExecStart=/home/oracle/WlsScripts/Startup.sh
-  ExecStop=/home/oracle/WlsScripts/Shutdown.sh
+  ExecStart=/home/oracle/WlsScripts/webnm.sh start
+  ExecStop=/home/oracle/WlsScripts/webnm.sh stop
+  TimeoutSec=10m0s
+  RemainAfterExit=yes
 
   [Install]
   WantedBy=multi-user.target" > /usr/lib/systemd/system/webnm.service
