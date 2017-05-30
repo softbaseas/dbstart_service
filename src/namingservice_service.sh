@@ -43,7 +43,7 @@ fi
   [Service]
   User=oracle
   Group=oinstall
-  Type=forking
+  Type=simple
   Restart=no
   ExecStart=/home/oracle/WlsScripts/Startnamingservice.sh
   ExecStop=/home/oracle/WlsScripts/Stopnamingservice.sh
