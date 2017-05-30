@@ -29,7 +29,7 @@ if [ -f "/usr/lib/systemd/system/namingservice.service" ]; then
     [Yy]*)  systemctl stop namingservice; rm /usr/lib/systemd/system/namingservice.service ;;
     *) echo "Won't delete."; exit 1 ;;
   esac
-#fi
+fi
   echo "# /etc/systemd/system/namingservice.service
   # Ivan Kartik (ivn.kartik.sk), edit by Anders Wiberg Olsen (www.wiberg.tech)
   #    Invoking Oracle scripts to start/shutdown instances defined in /etc/oratab
@@ -55,7 +55,7 @@ if [ -f "/usr/lib/systemd/system/namingservice.service" ]; then
   systemctl enable namingservice
   echo "Done! Service namingservice.service has been configured and will be started during next boot."
   echo "If you want to start the service now, execute: systemctl start namingservice"
-else
-  echo "Error: namingservice.service is not installed yet. This script will not work without it, install it before installing this."
-  exit 1
-fi
+#else
+  #echo "Error: namingservice.service is not installed yet. This script will not work without it, install it before installing this."
+  #exit 1
+#fi
