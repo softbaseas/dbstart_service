@@ -2,6 +2,7 @@
 echo "Choose one of the following possibilities:"
 echo " 1 - Create the dbstart service."
 echo " 2 - Create the webnm service."
+echo " 3 - Create the namingservice service."
 echo " q - Exit"
 
 while true; do
@@ -9,6 +10,7 @@ while true; do
   case $choice in
     [1]*) ./src/dbstart_service.sh ;;
     [2]*) ./src/webnm_service.sh ;;
+    [3]*) ./src/namingservice_service.sh ;;
     [q]*) exit 0 ;;
   esac
 done
