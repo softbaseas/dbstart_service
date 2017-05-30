@@ -43,7 +43,7 @@ if [ -f "/usr/lib/systemd/system/webnm.service" ]; then
   [Service]
   User=oracle
   Group=oinstall
-  Type=forked
+  Type=forking
   Restart=no
   ExecStart=/home/oracle/WlsScripts/webnm.sh start
   ExecStop=/home/oracle/WlsScripts/webnm.sh stop
